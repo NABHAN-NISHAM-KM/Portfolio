@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio! This project is built using **React**, **Vite**, and **Tailwind CSS**. It's a showcase of my skills, projects, experience, and achievements as a web developer.
 
-![Portfolio Screenshot](./public/assets/preview.png) <!-- You can add an actual screenshot or remove this line -->
+<!-- ![Portfolio Screenshot](./public/assets/preview.png)  You can add an actual screenshot or remove this line -->
 
 ## 🛠 Tech Stack
 
@@ -28,7 +28,7 @@ Welcome to my personal portfolio! This project is built using **React**, **Vite*
 
 ## 📷 Preview
 
-![Preview GIF or Image](./public/assets/demo.gif)
+![Preview Image](./public/assets/preview.png)
 
 ## 🧑‍💻 Getting Started
 
