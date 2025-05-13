@@ -66,7 +66,7 @@ export default function Home() {
         <h1 className="text-5xl md:text-6xl font-extrabold mb-2 tracking-tight">
           Nabhan Nisham KM
         </h1>
-        <div className="mt-2 mb-4 text-2xl md:text-3xl font-semibold text-[#63b2fd]">
+        <div className="mt-2 mb-4 text-2xl md:text-3xl font-semibold text-[#8789fb]">
           {displayText}
           <span className="animate-blink">|</span>
         </div>

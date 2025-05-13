@@ -12,7 +12,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="max-w-4xl mx-auto px-6 py-12 bg-white/90 rounded-2xl shadow-xl pb-20"
+      className="max-w-4xl mx-auto px-6 py-8 bg-white/90 rounded-2xl shadow-xl pb-20"
     >
       {/* Heading */}
       <div className="text-center mb-8">
@@ -20,7 +20,7 @@ export default function About() {
           ABOUT
         </h2>
         <div className="mx-auto mt-2 w-24 h-1 bg-gray-200 relative">
-          <div className="absolute left-1/2 -translate-x-1/2 w-12 h-1 bg-[#0563bb] rounded"></div>
+          <div className="absolute left-1/2 -translate-x-1/2 w-12 h-1 bg-[#6366F1] rounded"></div>
         </div>
       </div>
       {/* Paragraph */}
@@ -29,7 +29,7 @@ export default function About() {
           👋
         </span>{" "}
         Hi, I'm{" "}
-        <span className="font-semibold text-[#0563bb]">Nabhan Nisham KM</span>,
+        <span className="font-semibold text-[#6366F1]">Nabhan Nisham KM</span>,
         a full-stack developer from Kerala, India. With over 2 years of
         experience in web development, I specialize in building scalable and
         responsive applications using the{" "}
@@ -54,28 +54,28 @@ export default function About() {
         {/* Details Right */}
         <ul className="flex-1 space-y-4 text-base text-gray-700 md:text-lg md:max-w-md bg-white/80 rounded-xl p-4 shadow">
           <li className="flex items-center gap-3">
-            <FaBirthdayCake className="text-[#0563bb] text-xl" />
+            <FaBirthdayCake className="text-[#6366F1] text-xl" />
             <span className="font-semibold w-28">Birthday:</span> 18 July 2001
           </li>
           <li className="flex items-center gap-3">
-            <FaPhone className="text-[#0563bb] text-xl" />
+            <FaPhone className="text-[#6366F1] text-xl" />
             <span className="font-semibold w-28">Phone:</span> +91 7025204337
           </li>
           <li className="flex items-center gap-3">
-            <FaEnvelope className="text-[#0563bb] text-xl" />
+            <FaEnvelope className="text-[#6366F1] text-xl" />
             <span className="font-semibold w-28">Email:</span>{" "}
             nabhannisham5@gmail.com
           </li>
           <li className="flex items-center gap-3">
-            <FaMapMarkerAlt className="text-[#0563bb] text-xl" />
+            <FaMapMarkerAlt className="text-[#6366F1] text-xl" />
             <span className="font-semibold w-28">City:</span> Malappuram, India
           </li>
           <li className="flex items-center gap-3">
-            <FaGraduationCap className="text-[#0563bb] text-xl" />
+            <FaGraduationCap className="text-[#6366F1] text-xl" />
             <span className="font-semibold w-28">Degree:</span> Bachelors
           </li>
           <li className="flex items-center gap-3">
-            <FaCheckCircle className="text-[#0563bb] text-xl" />
+            <FaCheckCircle className="text-[#6366F1] text-xl" />
             <span className="font-semibold w-28">Freelance:</span>
             <span className="text-green-600 font-semibold">Available</span>
           </li>
