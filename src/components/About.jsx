@@ -1,4 +1,8 @@
-import profileImg from "/assets/me1.jpg";
+import React, { useState, useEffect } from "react";
+import img1 from "/assets/me1.jpg";
+import img2 from "/assets/me2.jpg";
+import img3 from "/assets/me3.jpg";
+import img4 from "/assets/me4.jpg";
 import {
   FaBirthdayCake,
   FaPhone,
@@ -8,14 +12,30 @@ import {
   FaCheckCircle,
 } from "react-icons/fa";
 
+const images = [img1, img2, img3, img4];
+
 export default function About() {
+  const [current, setCurrent] = useState(0);
+  const [animating, setAnimating] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAnimating(true);
+      setTimeout(() => {
+        setCurrent((prev) => (prev + 1) % images.length);
+        setAnimating(false);
+      }, 800); // match animation duration
+    }, 2000); // change every 3s
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="about"
-      className="max-w-4xl mx-auto px-6 py-8 bg-white/90 rounded-2xl shadow-xl pb-20"
+      className="max-w-4xl mx-auto px-4 sm:px-6 py-30 flex flex-col items-center"
     >
       {/* Heading */}
-      <div className="text-center mb-8">
+      <div className="text-center mb-18">
         <h2 className="text-4xl font-extrabold text-gray-800 tracking-wide">
           ABOUT
         </h2>
@@ -33,7 +53,7 @@ export default function About() {
         a full-stack developer from Kerala, India. With over 2 years of
         experience in web development, I specialize in building scalable and
         responsive applications using the{" "}
-        <span className="font-semibold">MERN stack</span> and{" "}
+        <span className="font-semibold">MERN Stack</span> and{" "}
         <span className="font-semibold">Laravel</span>. I enjoy turning ideas
         into real-world products through clean code and thoughtful design. I've
         worked in both agile teams and solo projects, contributing to
@@ -41,18 +61,17 @@ export default function About() {
         I'm not coding, I love gaming and exploring new tech.
       </p>
       {/* Image and Details */}
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-8 w-full">
         {/* Image Left */}
         <div className="flex-shrink-0 flex justify-center md:justify-end w-full md:w-auto">
           <img
-            src={profileImg}
+            src={images[current]}
             alt="Nabhan Nisham"
-            className="w-60 h-70 object-cover rounded-2xl shadow-lg border-4 border-white bg-white"
-            style={{ boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15)" }}
+            className="w-60 h-70 object-cover rounded-2xl shadow-lg border-4 border-white bg-white transition-transform duration-300 hover:scale-105"
           />
         </div>
         {/* Details Right */}
-        <ul className="flex-1 space-y-4 text-base text-gray-700 md:text-lg md:max-w-md bg-white/80 rounded-xl p-4 shadow">
+        <ul className="flex-1 space-y-4 text-base text-gray-700 md:text-lg md:max-w-md bg-white/80 rounded-xl p-4 shadow-md border border-gray-100 transition-transform duration-300 hover:scale-105">
           <li className="flex items-center gap-3">
             <FaBirthdayCake className="text-[#6366F1] text-xl" />
             <span className="font-semibold w-28">Birthday:</span> 18 July 2001
