@@ -53,9 +53,9 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="w-full min-h-screen bg-white/90 py-12 pb-32 md:pb-16"
+      className="w-full min-h-screen bg-white/90 py-10 lg:py-40 pb-16 lg:pb-32"
     >
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="">
         <div className="text-center mb-2">
           <h2 className="text-4xl font-extrabold text-[#22223b] mb-2">
             What I Offer

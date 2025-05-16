@@ -42,22 +42,96 @@ const educationData = [
 ];
 
 const skillsData = [
-  "JavaScript",
-  "React",
-  "Node.js",
-  "Tailwind CSS",
-  "Git",
-  "REST APIs",
+  {
+    label: "HTML5",
+    icon: "/assets/icons/html-5.png",
+  },
+  {
+    label: "CSS3",
+    icon: "/assets/icons/css-3.png",
+  },
+  {
+    label: "JS",
+    icon: "/assets/icons/js.png",
+  },
+  {
+    label: "Python",
+    icon: "/assets/icons/python.png",
+  },
+  {
+    label: "PHP",
+    icon: "/assets/icons/php.png",
+  },
+  {
+    label: "C++",
+    icon: "/assets/icons/c-.png",
+  },
+  {
+    label: "C#",
+    icon: "/assets/icons/c-sharp.png",
+  },
+  {
+    label: "React Js",
+    icon: "/assets/icons/react.png",
+  },
+  {
+    label: "Vite Js",
+    icon: "/assets/icons/vite.png",
+  },
+  {
+    label: "Node Js",
+    icon: "/assets/icons/nodejs.png",
+  },
+  {
+    label: "Express Js",
+    icon: "/assets/icons/express-js.png",
+  },
+  {
+    label: "Laravel",
+    icon: "/assets/icons/laravel.png",
+  },
+  {
+    label: "MongoDB",
+    icon: "/assets/icons/mongodb.png",
+  },
+  {
+    label: "MySQL",
+    icon: "/assets/icons/mysql.png",
+  },
+  {
+    label: "Bootstrap",
+    icon: "/assets/icons/bootstrap.png",
+  },
+  {
+    label: "Tailwind CSS",
+    icon: "/assets/icons/tailwindcss.png",
+  },
+  {
+    label: "Git",
+    icon: "/assets/icons/git.png",
+  },
+  {
+    label: "GitHub",
+    icon: "/assets/icons/github.png",
+  },
+  {
+    label: "VS Code",
+    icon: "/assets/icons/vscode.png",
+  },
+  {
+    label: "Postman",
+    icon: "/assets/icons/postman.png",
+  },
 ];
 
 function TimelineCards({ data }) {
   return (
-    <div className="w-full mt-8">
-      {/* Desktop Timeline View (hidden on mobile) */}
-      <div className="relative hidden md:block">
-        {/* Vertical line container that extends the full height of the timeline */}
-        <div className="absolute left-1/2 top-0 h-full w-1 bg-gray-300 z-0 transform -translate-x-1/2" />
+    <div className="w-full mt-8 relative">
+      {/* Vertical line container that extends the full height of the timeline */}
+      <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gray-300 z-0 transform -translate-x-1/2" />
 
+      {/* Timeline Items */}
+      <div className="relative hidden md:block">
         {data.map((item, idx) => {
           const isLeft = idx % 2 === 0;
           const isLast = idx === data.length - 1;
@@ -165,13 +239,15 @@ export default function Resume() {
         {activeTab === 0 && <TimelineCards data={experienceData} />}
         {activeTab === 1 && <TimelineCards data={educationData} />}
         {activeTab === 2 && (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-8">
+          <div className="flex flex-wrap gap-6 justify-center mt-8">
             {skillsData.map((skill, idx) => (
               <div
                 key={idx}
-                className="bg-white border border-blue-200 rounded-xl shadow p-4 text-center text-[#6366F1] font-semibold"
+                className="w-20 h-20 flex flex-col items-center justify-center transition-transform duration-300 hover:scale-110"
+                title={skill.label}
               >
-                {skill}
+                <img src={skill.icon} alt={skill.label} className="w-10 h-10 mb-1 object-contain" />
+                <span className="text-gray-700 font-semibold text-xs mt-1">{skill.label}</span>
               </div>
             ))}
           </div>
