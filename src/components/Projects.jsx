@@ -25,9 +25,11 @@ export default function Projects() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const token = import.meta.env.VITE_GITHUB_TOKEN;
     fetch('https://api.github.com/users/NABHAN-NISHAM-KM/repos', {
       headers: {
-        Accept: 'application/vnd.github.mercy-preview+json'
+        Accept: 'application/vnd.github.mercy-preview+json',
+        Authorization: `token ${token}`
       }
     })
       .then(res => res.json())
