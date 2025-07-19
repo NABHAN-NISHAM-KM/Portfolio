@@ -1,6 +1,42 @@
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("");
+    try {
+      await emailjs.send(
+        "service_o9akv2s",
+        "template_ppecjap",
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+          name: form.name,
+          email: form.email,
+          title: "Portfolio",
+        },
+        "fNQ7t62clcqj4o4EB"
+      );
+      setStatus("Message sent successfully!");
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      setStatus("Failed to send message. Please try again later.");
+    }
+    setLoading(false);
+  };
+
   return (
     <section id="contact" className="min-h-screen bg-gradient-to-br from-gray-50 to-white py-35">
       <div className="text-center mb-16">
@@ -45,45 +81,90 @@ export default function Contact() {
         </div>
 
         {/* Right: Form */}
-        <form className="flex-1 flex flex-col gap-8 w-full max-w-md">
+        <form className="flex-1 flex flex-col gap-8 w-full max-w-md" onSubmit={handleSubmit}>
+          {/* Name Field */}
           <div className="relative">
             <input
               type="text"
-              className="peer w-full border-b-2 border-gray-300 bg-transparent px-0 py-3 text-lg focus:border-[#6366F1] focus:outline-none transition"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              className="peer w-full border border-gray-300 rounded-lg bg-white px-4 py-3 text-lg focus:border-[#6366F1] focus:ring-2 focus:ring-[#6366F1]/30 focus:outline-none transition placeholder-transparent shadow-sm"
               placeholder=" "
               required
+              autoComplete="off"
             />
-            <label className="absolute left-0 top-3 text-gray-500 text-base transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-4 peer-focus:text-sm peer-focus:text-[#6366F1]">
+            <label
+              className={
+                `absolute left-4 bg-white px-1 transition-all duration-200 pointer-events-none
+                ${form.name
+                  ? "-top-3 text-sm text-[#6366F1]"
+                  : "top-3 text-base text-gray-500"}
+                peer-focus:-top-3 peer-focus:text-sm peer-focus:text-[#6366F1]`
+              }
+            >
               Name
             </label>
           </div>
+          {/* Email Field */}
           <div className="relative">
             <input
               type="email"
-              className="peer w-full border-b-2 border-gray-300 bg-transparent px-0 py-3 text-lg focus:border-[#6366F1] focus:outline-none transition"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              className="peer w-full border border-gray-300 rounded-lg bg-white px-4 py-3 text-lg focus:border-[#6366F1] focus:ring-2 focus:ring-[#6366F1]/30 focus:outline-none transition placeholder-transparent shadow-sm"
               placeholder=" "
               required
+              autoComplete="off"
             />
-            <label className="absolute left-0 top-3 text-gray-500 text-base transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-4 peer-focus:text-sm peer-focus:text-[#6366F1]">
+            <label
+              className={
+                `absolute left-4 bg-white px-1 transition-all duration-200 pointer-events-none
+                ${form.email
+                  ? "-top-3 text-sm text-[#6366F1]"
+                  : "top-3 text-base text-gray-500"}
+                peer-focus:-top-3 peer-focus:text-sm peer-focus:text-[#6366F1]`
+              }
+            >
               Email
             </label>
           </div>
+          {/* Message Field */}
           <div className="relative">
             <textarea
-              className="peer w-full border-b-2 border-gray-300 bg-transparent px-0 py-3 text-lg h-32 resize-none focus:border-[#6366F1] focus:outline-none transition"
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              className="peer w-full border border-gray-300 rounded-lg bg-white px-4 py-3 text-lg h-32 resize-none focus:border-[#6366F1] focus:ring-2 focus:ring-[#6366F1]/30 focus:outline-none transition placeholder-transparent shadow-sm"
               placeholder=" "
               required
+              autoComplete="off"
             />
-            <label className="absolute left-0 top-3 text-gray-500 text-base transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-4 peer-focus:text-sm peer-focus:text-[#6366F1]">
+            <label
+              className={
+                `absolute left-4 bg-white px-1 transition-all duration-200 pointer-events-none
+                ${form.message
+                  ? "-top-3 text-sm text-[#6366F1]"
+                  : "top-3 text-base text-gray-500"}
+                peer-focus:-top-3 peer-focus:text-sm peer-focus:text-[#6366F1]`
+              }
+            >
               Message
             </label>
           </div>
           <button
             type="submit"
             className="w-full bg-[#6366F1] text-white font-bold py-3 rounded-lg shadow hover:bg-[#4f46e5] transition text-lg"
+            disabled={loading}
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </button>
+          {status && (
+            <div className={`text-center text-lg font-semibold ${status.includes("success") ? "text-green-600" : "text-red-600"}`}>
+              {status}
+            </div>
+          )}
         </form>
       </div>
     </section>
