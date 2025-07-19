@@ -8,7 +8,6 @@ const repoDetails = {
   "E-commerce-Platform": {
     image: "/assets/me1.jpg",
   },
-  // Add more repo customizations here as needed
 };
 
 // Helper to generate a unique placeholder image for a repo
@@ -95,7 +94,7 @@ export default function Projects() {
                       {repo.description || 'No description provided.'}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-5">
-                      {(repo.languages || []).map((lang, i) => (
+                      {(Array.isArray(repo.languages) ? repo.languages : []).map((lang, i) => (
                         <span
                           key={i}
                           className="bg-[#6366F1]/10 text-[#6366F1] px-3 py-1 rounded-full text-xs font-semibold tracking-wide"
