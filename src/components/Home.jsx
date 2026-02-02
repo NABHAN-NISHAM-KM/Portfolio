@@ -137,7 +137,7 @@ export default function Home() {
           </a>
         </div>
         <a
-          href="https://drive.google.com/file/d/1G7EDdzH__XdDSFq4cHiQ6pKb9a2pb6Pb/view?usp=sharing"
+          href="https://drive.google.com/file/d/1OmQbexRwSA4ValVvlOxmHCEhyPsZgyBP/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-5 py-2 bg-[#6366F1] hover:bg-[#4F46E5] text-white font-semibold rounded-md shadow transition-colors text-base"
